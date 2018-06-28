@@ -12,7 +12,7 @@
     
         public function __construct()
         {
-            $this->link = mysqli_connect("localhost","root","","DoGiaTung") or die ();
+            $this->link = mysqli_connect("localhost","root","","daugia2.0") or die ();
             mysqli_set_charset($this->link,"utf8");
         }
     
@@ -102,9 +102,9 @@
          * @param  array  $conditions [description]
          * @return integer             [description]
          */
-        public function delete ($table ,  $id )
+        public function delete ($table ,  $id ,$ma )
         {
-            $sql = "DELETE FROM {$table} WHERE id = $id ";
+            $sql = "DELETE FROM {$table} WHERE $ma = $id ";
     
             mysqli_query($this->link,$sql) or die (" Lỗi Truy Vấn delete   --- " .mysqli_error($this->link));
             return mysqli_affected_rows($this->link);
@@ -139,9 +139,9 @@
             return $data;
         } 
     
-        public function fetchID($table , $id )
+        public function fetchID($table , $id, $ma )
         {
-            $sql = "SELECT * FROM {$table} WHERE id = $id ";
+            $sql = "SELECT * FROM {$table} WHERE $ma = $id ";
             $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
             return mysqli_fetch_assoc($result);
         }

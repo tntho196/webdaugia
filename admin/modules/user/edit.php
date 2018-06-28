@@ -1,6 +1,15 @@
 <?php
     $open= "user" ;
     require_once __DIR__. "/../../autoload/autoload.php";
+
+    $id=intval(getInput('id'));
+    $EditUser= $db->fetchID('thanhvien',$id, 'MaThanhVien');
+
+    if(empty($EditUser))
+    {
+        $_SESSION['error']= "Dứ liệu không tồn tại";
+        redirectAdmin('user');
+    }
     if($_SERVER["REQUEST_METHOD"]== "POST")
     {
         $data =
@@ -23,17 +32,17 @@
 
         if(empty($error))
         {
-            $id_insert= $db->insert('thanhvien',$data);
-            if($id_insert > 0)
+            $id_update= $db->update('thanhvien',$data, array("MaThanhVien"=>$id));
+            if($id_update > 0)
             {
-                $_SESSION['success']= "Thêm mới thành công";
+                $_SESSION['success']= "Cập nhật thành công";
                 redirectAdmin('user');
 
             }
             else
             {
                 // thêm thất bại
-                $_SESSION['error']= "Thêm mới thất bại";
+                $_SESSION['error']= "Cập Nhật thất bại";
             }
         }
     }
@@ -57,32 +66,32 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
-                    <legend><a href="http://hocwebgiare.com/"><i class="glyphicon glyphicon-globe"></i></a> Đăng ký thành viên!
+                    <legend><a href="http://hocwebgiare.com/"><i class="glyphicon glyphicon-globe"></i></a> Sửa thông tin thành viên!
                     </legend>
                     <form action="" method="post" class="form" role="form">
                         <div class="row">
-                            <div class="col-xs-6 col-md-6"> <input class="form-control" name="firstname" placeholder="Họ" required="" autofocus="" type="text"> 
+                            <div class="col-xs-6 col-md-6"> <input class="form-control" name="firstname" placeholder="Họ" required="" autofocus="" type="text" value="<?php echo $EditUser['Ho']  ?>""> 
                             </div>
-                            <div class="col-xs-6 col-md-6"> <input class="form-control" name="lastname" placeholder="Tên" required="" type="text"> 
+                            <div class="col-xs-6 col-md-6"> <input class="form-control" name="lastname" placeholder="Tên" required="" type="text" value="<?php echo $EditUser['Ten']  ?>""> 
                             </div>
                         </div>
-                        <input class="form-control" name="username" placeholder="Tên Đăng Nhập" type="text">
-                        <input class="form-control" name="password" placeholder="Mật khẩu" type="password"> 
-                        <input class="form-control" name="youremail" placeholder="Email" type="email">
+                        <input class="form-control" name="username" placeholder="Tên Đăng Nhập" type="text" value="<?php echo $EditUser['TenDangNhap']  ?>">
+                        <input class="form-control" name="password" placeholder="Mật khẩu" type="password"  value="<?php echo $EditUser['MatKhau']  ?>"> 
+                        <input class="form-control" name="youremail" placeholder="Email" type="email"  value="<?php echo $EditUser['Email']  ?>">
                         <label > Ngày sinh</label> 
-                        <input class="form-control" type="date" name="ngaysinh" >
+                        <input class="form-control" type="date" name="ngaysinh"  value="<?php echo $EditUser['NgaySinh']  ?>">
                         <br>
-                        <label class="radio-inline">          <input name="sex" id="inlineCheckbox1" value="1" type="radio">          Nam </label> <label class="radio-inline">          <input name="sex" id="inlineCheckbox2" value="0" type="radio">          Nữ </label> 
+                        <label class="radio-inline">          <input name="sex" id="inlineCheckbox1" value="1" type="radio" <?php if($EditUser['GioiTinh']==1) echo 'checked'  ?>>          Nam </label> <label class="radio-inline">          <input name="sex" id="inlineCheckbox2" value="0" type="radio" <?php if($EditUser['GioiTinh']==0) echo 'checked'  ?>>          Nữ </label> 
                         <br> 
-                        <input class="form-control" name="diachi" placeholder="Địa Chỉ " type="text">
-                        <input class="form-control" name="SDT" placeholder="Số Điện Thoại " type="text">
+                        <input class="form-control" name="diachi" placeholder="Địa Chỉ " type="text" value="<?php echo $EditUser['Diachi']  ?>">
+                        <input class="form-control" name="SDT" placeholder="Số Điện Thoại " type="text" value="<?php echo $EditUser['SDT']  ?>" >
                         <br> 
                         <p>
                           <?php if(isset($error))
                                 echo $error;
                            ?>  
                         </p>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit"> Đăng ký</button>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit"> Sửa</button>
 
                     </form>
                 </div>

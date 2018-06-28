@@ -1,3 +1,4 @@
+<?php  require_once __DIR__. "/../autoload/autoload.php";  ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,11 +9,11 @@
         <meta name="author" content="">
         <title>SB Admin - Bootstrap Admin Template</title>
         <!-- Bootstrap Core CSS -->
-        <link href="/daugia2.0/public/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href= "<?php echo base_url()?>public/admin/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="/daugia2.0/public/admin/css/sb-admin.css" rel="stylesheet">
+        <link href="<?php echo base_url()?>public/admin/css/sb-admin.css" rel="stylesheet">
         <!-- Custom Fonts -->
-        <link href="/daugia2.0/public/admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url()?>public/admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -102,10 +103,10 @@
                         </li>
                         
                         <li>
-                            <a href=""><i class="fa fa-fw fa-table"></i> Danh sách sản phẩm </a>
+                            <a href="<?php echo modules("product") ?>"><i class="fa fa-fw fa-table"></i> Danh sách sản phẩm </a>
                         </li>
-                        <li>
-                            <a href="/../moduels/user/index.php"><i class="fa fa-fw fa-edit"></i> Danh sách thành viên</a>
+                        <li class= "<?php echo isset($open) && $open == 'user' ? 'active': ''  ?>" >
+                            <a href=" <?php echo modules("user") ?> "><i class="fa fa-fw fa-edit"></i> Danh sách thành viên</a>
                         </li>
                         <li>
                             <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i>Danh sách phiên đấu giá</a>

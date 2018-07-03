@@ -6,6 +6,7 @@
 	 require_once __DIR__. "/../../libraries/function.php";
 
 	 $db = new Database;
+	 define("ROOT",$_SERVER['DOCUMENT_ROOT'] ."/daugia3.0/public/upload")
 
  ?>
  auto load ad min

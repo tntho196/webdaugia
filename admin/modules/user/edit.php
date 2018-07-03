@@ -32,18 +32,47 @@
 
         if(empty($error))
         {
-            $id_update= $db->update('thanhvien',$data, array("MaThanhVien"=>$id));
-            if($id_update > 0)
-            {
-                $_SESSION['success']= "Cập nhật thành công";
-                redirectAdmin('user');
+            if($EditUser['TenDangNhap']!= $data['TenDangNhap'])
+            {   
+                $isset=$db->fetchOne('thanhvien',"TenDangNhap ='".$data['TenDangNhap']."' ");
+                if($isset>0)
+                {
+                    $_SESSION['error']= "Tên đăng nhập đã tồn tại";
+                }
+                else
+                    {
+                        $id_update= $db->update('thanhvien',$data, array("MaThanhVien"=>$id));
+                        if($id_update > 0)
+                        {
+                            $_SESSION['success']= "Cập nhật thành công";
+                            redirectAdmin('user');
 
+                        }
+                        else
+                        {
+                            // thêm thất bại
+                            $_SESSION['error']= "Cập Nhật thất bại";
+                        }
+                    }
+                
             }
             else
             {
-                // thêm thất bại
-                $_SESSION['error']= "Cập Nhật thất bại";
+                $id_update= $db->update('thanhvien',$data, array("MaThanhVien"=>$id));
+                        if($id_update > 0)
+                        {
+                            $_SESSION['success']= "Cập nhật thành công";
+                            redirectAdmin('user');
+
+                        }
+                        else
+                        {
+                            // thêm thất bại
+                            $_SESSION['error']= "Cập Nhật thất bại";
+                        }
+
             }
+            
         }
     }
   ?>
@@ -59,9 +88,12 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i>  <a href="index.html">Thêm Thành viên</a>
+                            <i class="fa fa-dashboard"> Sửa thông tin thành viên</i>  
                         </li>
                     </ol>
+                    <!-- thông tin lỗi -->
+                    <div class="clearfix"></div>
+                            <?php require_once __DIR__. "/../../../partials/notification.php";   ?>
                 </div>
             </div>
             <div class="row">

@@ -87,9 +87,9 @@
             return mysqli_affected_rows($this->link);
     
         }
-        public function countTable($table)
+        public function countTable($table, $ma)
         {
-            $sql = "SELECT id FROM  {$table}";
+            $sql = "SELECT $ma FROM  {$table}";
             $result = mysqli_query($this->link, $sql) or die("Lỗi Truy Vấn countTable----" .mysqli_error($this->link));
             $num = mysqli_num_rows($result);
             return $num;
@@ -104,7 +104,7 @@
          */
         public function delete ($table ,  $id ,$ma )
         {
-            $sql = "DELETE FROM {$table} WHERE $ma = $id ";
+            $sql = "DELETE FROM {$table} WHERE $ma = '$id' ";
     
             mysqli_query($this->link,$sql) or die (" Lỗi Truy Vấn delete   --- " .mysqli_error($this->link));
             return mysqli_affected_rows($this->link);
@@ -141,10 +141,12 @@
     
         public function fetchID($table , $id, $ma )
         {
-            $sql = "SELECT * FROM {$table} WHERE $ma = $id ";
+            $sql = "SELECT * FROM {$table} WHERE $ma = '$id' ";
             $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
             return mysqli_fetch_assoc($result);
         }
+        // ham cho admin
+        
     
         public function fetchOne($table , $query)
         {
@@ -211,14 +213,14 @@
             
             return $data;
         }
-         public  function fetchJone($table,$sql ,$page = 0,$row ,$pagi = false )
+         public  function fetchJone($table,$sql ,$page = 0,$row ,$pagi = false, $ma )
         {
             
             $data = [];
             // _debug($sql);die;
             if ($pagi == true )
             {
-                $total = $this->countTable($table);
+                $total = $this->countTable($table,$ma);
                 $sotrang = ceil($total / $row);
                 $start = ($page - 1 ) * $row ;
                 $sql .= " LIMIT $start,$row";

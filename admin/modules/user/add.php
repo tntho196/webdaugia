@@ -23,18 +23,29 @@
 
         if(empty($error))
         {
-            $id_insert= $db->insert('thanhvien',$data);
-            if($id_insert > 0)
-            {
-                $_SESSION['success']= "Thêm mới thành công";
-                redirectAdmin('user');
+            $isset=$db->fetchOne('thanhvien',"TenDangNhap ='".$data['TenDangNhap']."' ");
 
+            if($isset>0)
+            {
+                $_SESSION['error']= "Tên đăng nhập đã tồn tại";
             }
             else
-            {
-                // thêm thất bại
-                $_SESSION['error']= "Thêm mới thất bại";
-            }
+                {
+                    $id_insert= $db->insert('thanhvien',$data);
+                    echo " asasasa $id_insert";
+                if($id_insert > 0)
+                {
+                    $_SESSION['success']= "Thêm mới thành công";
+                    redirectAdmin('user');
+
+                }
+                else
+                {
+                    // thêm thất bại
+                    $_SESSION['error']= "Thêm mới thất bại";
+                }
+            }   
+            
         }
     }
   ?>
@@ -50,14 +61,17 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i>  <a href="index.html">Thêm Thành viên</a>
+                            <i class="fa fa-dashboard"></i>  Thêm Thành viên
                         </li>
                     </ol>
+                    <!-- thng tin lỗi -->
+                    <div class="clearfix"></div>
+                            <?php require_once __DIR__. "/../../../partials/notification.php";   ?>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
-                    <legend><a href="http://hocwebgiare.com/"><i class="glyphicon glyphicon-globe"></i></a> Đăng ký thành viên!
+                    <legend><a href="http://hocwebgiare.com/"><i class="glyphicon glyphicon-globe"></i></a> Thêm !
                     </legend>
                     <form action="" method="post" class="form" role="form">
                         <div class="row">
@@ -77,11 +91,16 @@
                         <input class="form-control" name="diachi" placeholder="Địa Chỉ " type="text">
                         <input class="form-control" name="SDT" placeholder="Số Điện Thoại " type="text">
                         <br> 
-                        <p>
-                          <?php if(isset($error))
-                                echo $error;
-                           ?>  
-                        </p>
+                       
+                            
+                                <?php if(isset($error))
+                                        echo " <div class='alert alert-danger'>
+                                          $error
+                                                        </div>";
+                                        
+                                 ?>   
+                            
+                        
                         <button class="btn btn-lg btn-primary btn-block" type="submit"> Đăng ký</button>
 
                     </form>

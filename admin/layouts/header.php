@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">Admin</a>
+                    <a class="navbar-brand" href="index.php">Admin</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -98,8 +98,8 @@
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
-                        <li>
-                            <a href="index.html"><i class="fa fa-fw fa-dashboard"></i>Danh Sách Admin</a>
+                        <li class= "<?php echo isset($open) && $open == 'quanly' ? 'active': ''  ?>">
+                            <a href="<?php echo modules("quanly ") ?>"><i class="fa fa-fw fa-dashboard"></i>Danh Sách Admin</a>
                         </li>
                         
                         <li>

@@ -1,27 +1,27 @@
 <?php
-    $open='user';
+    $open='quanly';
      require_once __DIR__. "/../../autoload/autoload.php";
 
     $id=getInput('id');
-    $delete= $db->fetchID('thanhvien',$id, 'MaThanhVien');
+    $delete= $db->fetchID('admin',$id, 'username');
 
     if(empty($delete))
     {
-        $_SESSION['error']= "Dữ liệu không tồn tại";
-        redirectAdmin('user');
+        $_SESSION['error']= "Dứ liệu không tồn tại";
+        redirectAdmin('quanly');
     }
-    $id_delete= $db->delete('thanhvien', $id, 'MaThanhVien');
+    $id_delete= $db->delete('admin', $id, 'username');
             if($id_delete > 0)
             {
                 $_SESSION['success']= "Xóa thành công";
-                redirectAdmin('user');
+                redirectAdmin('quanly');
 
             }
             else
             {
                 // thêm thất bại
                 $_SESSION['error']= "Xóa thất bại";
-                redirectAdmin('user');
+                redirectAdmin('quanly');
             }
 
 

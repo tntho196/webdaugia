@@ -1,4 +1,4 @@
-<?php  require_once __DIR__. "/../autoload/autoload.php";  ?>
+<?php  require_once __DIR__. "/../../autoload/autoload.php";  ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

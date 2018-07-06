@@ -1,6 +1,6 @@
 <?php
     $open='product';
-     require_once __DIR__. "/../../autoload/autoload.php";
+      require_once __DIR__. "/../../../autoload/autoload.php";
 
     $id=getInput('id');
     $delete= $db->fetchID('sanpham',$id, 'MaSP');

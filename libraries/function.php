@@ -161,5 +161,3 @@
     
     
     ?>
-Function.php
-Đang hiển thị Function.php.

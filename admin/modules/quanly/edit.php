@@ -1,6 +1,6 @@
 <?php
     $open= "quanly" ;
-    require_once __DIR__. "/../../autoload/autoload.php";
+    require_once __DIR__. "/../../../autoload/autoload.php";
 
     $id=getInput('id');
     $EditUser= $db->fetchID('admin',$id, 'username');

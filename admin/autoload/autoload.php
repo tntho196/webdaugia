@@ -9,4 +9,3 @@
 	 define("ROOT",$_SERVER['DOCUMENT_ROOT'] ."/daugia3.0/public/upload")
 
  ?>
- auto load ad min

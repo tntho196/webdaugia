@@ -1,6 +1,10 @@
 <?php
-    $open= "user" ;
-    require_once __DIR__. "/../../../autoload/autoload.php";
+    
+    require_once __DIR__. "/autoload/autoload.php";
+    if (isset($_SESSION['name_user']))
+    {
+        echo " <script> alert('Bạn Đã có tài khoản  ');location.href='index.php'</script>" ;
+    }
     if($_SERVER["REQUEST_METHOD"]== "POST")
     {
         $data =
@@ -32,17 +36,18 @@
             else
                 {
                     $id_insert= $db->insert('thanhvien',$data);
-                    echo " asasasa $id_insert";
+                    
                 if($id_insert > 0)
                 {
-                    $_SESSION['success']= "Thêm mới thành công";
-                    redirectAdmin('user');
+                    $_SESSION['success']= "Đăng  Ký thành công mời bạn đăng nhập ";
+                     header("location: login.php");
+                    
 
                 }
                 else
                 {
                     // thêm thất bại
-                    $_SESSION['error']= "Thêm mới thất bại";
+                    $_SESSION['error']= "Dăng ký  thất bại";
                 }
             }   
             
@@ -51,27 +56,30 @@
   ?>
 
 
-<?php require_once __DIR__. "/../../layouts/header.php";  ?>
-<!-- Page Heading  Nội dung -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">
-                        Trang quản trị ADmin
-                        <small>Subheading</small>
-                    </h1>
-                    <ol class="breadcrumb">
-                        <li>
-                            <i class="fa fa-dashboard"></i>  Thêm Thành viên
-                        </li>
-                    </ol>
-                    <!-- thng tin lỗi -->
-                    <div class="clearfix"></div>
-                            <?php require_once __DIR__. "/../../../partials/notification.php";   ?>
-                </div>
-            </div>
-            <div class="row">
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title></title>
+   <link rel="stylesheet" href="">
+   <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+           
+            <div class="row " style="margin: 100px;">
+                 <div class="clearfix"></div>
+                 <?php if(isset($_SESSION['error'])) :  ?>
+                                <div class="alert alert-danger  ">
+                                    <?php echo $_SESSION['error']; unset($_SESSION['error']);  ?>
+                                </div>
+                            <?php endif;  ?>
+                           
+                           
                 <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
-                    <legend><a href="http://hocwebgiare.com/"><i class="glyphicon glyphicon-globe"></i></a> Thêm !
+                    <legend><a href="http://hocwebgiare.com/"><i class="glyphicon glyphicon-globe"></i></a> Đăng ký làm Thành viên !
                     </legend>
                     <form action="" method="post" class="form" role="form">
                         <div class="row">
@@ -106,5 +114,12 @@
                     </form>
                 </div>
             </div>
+            <div class="clearfix"></div>
+            
+
+   
+</body>
+</html>
+<!-- Page Heading  Nội dung -->
+            
             <!-- /.row -->
-<?php require_once __DIR__. "/../../layouts/footer.php";  ?>

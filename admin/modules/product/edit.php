@@ -1,7 +1,7 @@
 
   <?php
     $open= "product" ;
-    require_once __DIR__. "/../../autoload/autoload.php";
+    require_once __DIR__. "/../../../autoload/autoload.php";
     $id=getInput('id');
     $id_loaisp=$db->fetchAll("loaisp");
     $id_user=$db->fetchAll("thanhvien");

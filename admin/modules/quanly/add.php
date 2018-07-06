@@ -1,7 +1,7 @@
 
   <?php
     $open= "quanly" ;
-    require_once __DIR__. "/../../autoload/autoload.php";
+    require_once __DIR__. "/../../../autoload/autoload.php";
     if($_SERVER["REQUEST_METHOD"]== "POST")
     {
         $data =

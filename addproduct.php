@@ -1,16 +1,15 @@
-
-  <?php
-    $open= "product" ;
-    require_once __DIR__. "/../../../autoload/autoload.php";
+<?php require_once __DIR__. "/layouts/header.php";  ?> 
+<?php
+        
     $id_loaisp=$db->fetchAll("loaisp");
-    $id_user=$db->fetchAll("ThanhVien");
+    
     if($_SERVER["REQUEST_METHOD"]== "POST")
     {
         $data =
         [
             "TenSP"=> postInput('TenSP'),
             "GiaKhoiDiem"   => postInput('price'),
-            "NguoiBan"   => postInput('NguoiBan'),
+            "NguoiBan"   => $_SESSION['name_id'],
             "ThongTinSP"   => postInput('content'),
             // "Anh"   => postInput('thunbar'),
             "MaLoai"   => postInput('loaisp'),
@@ -44,7 +43,7 @@
             {
                 $file_name =$_FILES['thunbar']['name'];
                 $file_tmp  =$_FILES['thunbar']['tmp_name'];
-                $file_type =$_FILE['thunbar']['type'];
+                $file_type =$_FILES['thunbar']['type'];
                 $file_erro  =$_FILES['thunbar']['error'];
 
                 if($file_erro == 0)
@@ -61,7 +60,7 @@
                 {
                     move_uploaded_file($file_tmp,$part.$file_name);
                     $_SESSION['success']= "Thêm mới thành công";
-                    redirectAdmin('product');
+                    
 
                 }
                 else
@@ -77,29 +76,10 @@
 
     }
   ?>
-
-
-<?php require_once __DIR__. "/../../layouts/header.php";  ?>
-<!-- Page Heading  Nội dung -->
+               
             <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">
-                        Trang quản trị ADmin
-                        <small>Subheading</small>
-                    </h1>
-                    <ol class="breadcrumb">
-                        <li>
-                            <i class="fa fa-dashboard"></i>  Thêm Sản phẩm
-                        </li>
-                    </ol>
-                    <!-- thng tin lỗi -->
-                    <div class="clearfix"></div>
-                            <?php require_once __DIR__. "/../../../partials/notification.php";   ?>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 ">
-                    <legend><i class="glyphicon glyphicon-globe"></i></a> Thêm !
+                <div class="col-md-6 ">
+                    <legend><i class="glyphicon glyphicon-globe"></i></a> Đăng tải Sản Phẩm !
                     </legend>
                     <form action="" method="post" class="form" role="form" enctype="multipart/form-data">
                         
@@ -125,14 +105,7 @@
                             <br>
                             <label  class="control-lable" > Người bán </label>
                            
-                            <select class="form-control " name="NguoiBan" >
                             
-
-                                <?php foreach( $id_user as  $item):  ?>
-                                    <option value="<?php echo $item['MaThanhVien']  ?>"> <?php echo $item['TenDangNhap']  ?> 
-                                    </option>   
-                                <?php endforeach  ?> 
-                            </select>
                             
                             <label  class="control-lable" > Giá </label>
                             <input class="form-control" name="price" placeholder="Giá Khởi Điểm" type="text"> 
@@ -176,10 +149,15 @@
                             
                       <br> 
                        
-                        <button class="btn btn-lg btn-primary btn-block" type="submit"> Thêm</button>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit"> ĐĂng Lên</button>
 
                     </form>
                 </div>
-            </div>
-            <!-- /.row -->
-<?php require_once __DIR__. "/../../layouts/footer.php";  ?>
+            </div>   
+
+                        
+
+                    </div>
+                </div>
+<?php require_once __DIR__. "/layouts/footer.php";  ?>
+                

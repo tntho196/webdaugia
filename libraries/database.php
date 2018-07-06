@@ -94,6 +94,15 @@
             $num = mysqli_num_rows($result);
             return $num;
         }
+        public function maxsql($table,$colum,$id,$ma)
+        {   
+            $sql="SELECT MAX($colum) as lonnhat FROM {$table} WHERE $ma like '$id'";
+           
+            $result = mysqli_query($this->link, $sql) or die("Lỗi Truy Vấn countTable----" .mysqli_error($this->link));
+            $row=mysqli_fetch_array($result);
+            $max=$row['lonnhat'];
+            return $max;
+        }
     
     
         /**
@@ -275,5 +284,3 @@
     }
     
     ?>
-Database.php
-Đang hiển thị Database.php.

@@ -2,13 +2,11 @@
 <?php
         $showsproduct=$db->fetchAll('sanpham');
   ?>
-                    <div class="col-md-9 bor">
-                        <section id="slide" class="text-center" >
-                            <img src="/daugia3.0/public/frontend/images/slide/sl3.jpg" class="img-thumbnail">
-                        </section>
+                    <div class="col-md-9 col-xs-3 bor">
+                        
 
                         <section class="box-main1">
-                            <h3 class="title-main"><a href=""> Máy Canong</a> </h3>
+                            <h3 class="title-main"><a href="">Tất Cả Sản Phẩm</a> </h3>
                             
                             <div class="showitem">
                                 <?php foreach ($showsproduct as $key ): ?>
@@ -35,4 +33,14 @@
                     </div>
                 </div>
 <?php require_once __DIR__. "/layouts/footer.php";  ?>
+<script type="text/javascript">
+    $(document).ready(function () {
+        setInterval(function() {
+            $.ajax({
+                method: 'GET',
+                url: 'updateTrangThaiBanHang.php',
+            })
+        }, 3000);
+    });
+</script>
                 

@@ -13,7 +13,7 @@ $open= "product" ;
         $p=1;
     }
     $sql="SELECT sanpham.* , loaisp.TenLoaiSP as namecate FROM sanpham ,loaisp WHERE  loaisp.id = sanpham.MaLoai";
-    $product= $db->fetchJone("sanpham",$sql,$p,2,true,'MaLoai');
+    $product= $db->fetchJone("sanpham",$sql,$p,7,true,'MaLoai');
     if(isset($product['page']))
     {
         $sotrang=$product['page'];

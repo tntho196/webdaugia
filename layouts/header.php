@@ -19,7 +19,15 @@ $showloai=$db->fetchAll('loaisp');
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/frontend/css/slick-theme.css"/>
         <!--slide-->
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/frontend/css/style.css">
-        
+      
+         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!-- Include Editor style. -->
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_style.min.css' rel='stylesheet' type='text/css' />
+         
+        <!-- Include JS file. -->
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/js/froala_editor.min.js'></script>
+
     </head>
     <body>
         <div id="wrapper">
@@ -36,15 +44,19 @@ $showloai=$db->fetchAll('loaisp');
                                         
                                         <?php  if(isset($_SESSION['name_user'])):  ?>
                                             <li>
-                                                xin chào <?php echo $_SESSION['name_user']  ?>   
+                                                Xin chào <?php echo $_SESSION['name_user']  ?>   
                                             </li>
                                              <li>
                                                 <a href=""><i class="fa fa-user"></i> My Account <i class="fa fa-caret-down"></i></a>
                                                 <ul id="header-submenu">
-                                                    <li><a href="">Thông Tin</a></li>
+                                                    <li><a href="info_myuser.php">Thông Tin</a></li>
                                                     
                                                     <li><a href="thoat.php"> Thoát</a></li>
+                                                    <li><a href="sua_info.php">Sửa thông tin</a></li>
                                                 </ul>
+                                            </li>
+                                            <li>
+                                                <div id="noti">THONG BAO</div>
                                             </li>
                                             
                                         <?php else:  ?>
@@ -67,17 +79,10 @@ $showloai=$db->fetchAll('loaisp');
                     <div class="row" id="header-main">
                         <div class="col-md-5">
                             <form class="form-inline">
+                                <label>Tìm Kiếm Sản Phẩm: </label>
                                 <div class="form-group">
-                                    <label>
-                                        <select name="category" class="form-control">
-                                            <option> All Category</option>
-                                            <option> Dell </option>
-                                            <option> Hp </option>
-                                            <option> Asuc </option>
-                                            <option> Apper </option>
-                                        </select>
-                                    </label>
-                                    <input type="text" name="keywork" placeholder=" input keywork" class="form-control">
+                                   
+                                    <input type="text" name="keywork" placeholder=" Nhập sản phẩm cần tìm..." class="form-control">
                                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                 </div>
                             </form>
@@ -87,7 +92,7 @@ $showloai=$db->fetchAll('loaisp');
                                 <img src="/daugia3.0/public/frontend/images/logo-default.png">
                             </a>
                         </div>
-                        <div class="col-md-3" id="header-right">
+                        <div class="col-md-3 " id="header-right">
                             <div class="pull-right">
                                 <div class="pull-left">
                                     <i class="glyphicon glyphicon-phone-alt"></i>
@@ -121,7 +126,7 @@ $showloai=$db->fetchAll('loaisp');
                                 <a href="">Mobile</a>
                             </li>
                             <li>
-                                <a href="">Contac</a>
+                                <a href="">Liên hệ</a>
                             </li>
                             <li>
                                 <a href="">Blog</a>
@@ -146,7 +151,7 @@ $showloai=$db->fetchAll('loaisp');
             
             <div id="maincontent">
                 <div class="container">
-                    <div class="col-md-3  fixside" >
+                    <div class="col-md-3 col-xs-3  fixside" >
                         <div class="box-left box-menu" >
                             <h3 class="box-title"><i class="fa fa-list"></i>  Danh mục</h3>
                             <ul>

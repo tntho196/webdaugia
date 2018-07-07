@@ -48,6 +48,10 @@
                 {
                     $error['daugia']=" Bạn phải nhập giá lớn hơn giá cao nhất 10000 vnđ ";
                 }
+                if($_SESSION['name_id']==$iduser)
+                {
+                    $error['user_load']="Bạn không thể đấu giá sản phẩm này khi bạn là người bán ";
+                }
                 
 
 
@@ -97,7 +101,7 @@
                                     <li><p> Người bán: <b class=""><a href=""><?php echo $show_one_user['TenDangNhap']  ?></a> 
                                     
                                     <li><p> Giá Khởi điểm: <b class="price"><?php echo number_format($show_one_product['GiaKhoiDiem'])  ?> vnđ</b></li>
-                                    <li><p><h3> Giá Cao Nhất Hiện Tại:</h3> <b class="price"><?php echo number_format($maxgia)  ?> vnđ</b></li>
+                                    <li><p><h3> Giá Cao Nhất Hiện Tại:</h3> <b class="price" id="giaMaxHienTai"><?php echo number_format($maxgia)  ?> VNĐ</b></li>
                                    
                                </ul>
                             </div>
@@ -108,14 +112,22 @@
                                 <br>
                                  <label >Giá muốn đấu:</label>
                                  <div class="input-group ">
-                                        <input  name="daugia"type="number" step="10000" class="form-control"  value="<?php echo $maxgia ?>">
-                                        <div class="input-group-btn-vertical">
-                                            <?php
-                                if(isset($error['daugia'])): ?>
+                                        <input  name="daugia"type="number" step="10000" class="form-control"  value="<?php echo $maxgia ?>" id="inputGiaMax">
+                                        <br>
+                                        <div class="">
+                                <?php if(isset($error['daugia'])): ?>
+                                
                                 
                                     <p class="text-danger"> <?php echo  $error['daugia'] ?>  </p> 
                             
-                              <?php endif  ?>
+                              <?php endif;  ?>
+                              <?php if(isset($error['user_load'])): ?>
+                                
+                                    <br>
+                                    <p class="text-danger"> <?php echo  $error['user_load'] ?>  </p> 
+                            
+                              <?php endif;  ?>
+
                                           
                                         </div>
                                  </div>
@@ -154,8 +166,7 @@
                                 </ul>
                                 <div class="tab-content">
                                     <div id="home" class="tab-pane fade in active">
-                                        <h3>Nội dung</h3>
-                                        <br>
+                                        
                                         <table class="table">
                                             <thead>
                                                 <tr>
@@ -166,7 +177,7 @@
                                                     <th>thời gian</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="tableChiTietDauGiaBody">
                                                 <?php $stt=1; foreach ($ctdaugia as $key):?> 
                                                 
                                                 
@@ -175,7 +186,7 @@
                                                     <td><?php echo $stt ?></td>
                                                     <td><?php echo $key['hoten']  ?></td>
                                                     <td><?php echo $key['username']  ?></td>
-                                                    <td><?php echo $key['GiaMuonDau']  ?> vnđ</td>
+                                                    <td><?php echo number_format($key['GiaMuonDau'])  ?> vnđ</td>
                                                     <td><?php echo $key['thoigian'] ?></td>
                                                                <?php $stt++ ;?>
                                                 </tr>
@@ -198,5 +209,34 @@
                                 $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 100000);
                               });
                             })(jQuery);
+
+                        $(document).ready(function () {
+                            setInterval(function(){ 
+                                $.ajax({
+                                method: 'GET',
+                                data: {
+                                    id: <?php echo $id; ?>
+                                },
+                                url: 'lay_ctdaugia.php',
+                                dataType: 'json'
+                            }).
+                                done(function (res) {
+                                    $('#giaMaxHienTai').html(parseFloat(res.maxgia).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + ' VNĐ')
+                                    var ctBody = '';
+                                    res.ctdaugia.map(function(item, key) {
+                                        var row = '<tr>'+
+                                        '<td>'+parseInt(key+1)+'</td>'+
+                                        '<td>'+item.hoten+'</td>'+
+                                        '<td>'+item.username+'</td>'+
+                                        '<td>'+parseFloat(item.GiaMuonDau).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + ' VNĐ'+'</td>'+
+                                        '<td>'+item.thoigian+'</td>'+
+                                    '</tr>'
+                                        ctBody = ctBody + row;
+                                    })
+                                    $('#tableChiTietDauGiaBody').html(ctBody)
+                                })
+                             }, 3000);
+                            
+                        })
                     </script>
 <?php require_once __DIR__. "/layouts/footer.php";  ?>

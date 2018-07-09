@@ -122,7 +122,7 @@
                             
 
                                 <?php foreach( $id_loaisp as  $item):  ?>
-                                    <option value="<?php echo $item['id']  ?>" <?php $item['id']==$id_product['MaLoai'] ? "selected= 'selected'" : '' ?> > <?php echo $item['TenLoaiSP']  ?> 
+                                    <option value="<?php echo $item['id']  ?>" <?php if($item['id']==$id_product['MaLoai'])  echo "selected= 'selected'"  ?> > <?php echo $item['TenLoaiSP']  ?> 
                                     </option>   
                                 <?php endforeach  ?> 
                             </select>
@@ -133,7 +133,7 @@
                             
 
                                 <?php foreach( $id_user as  $item):  ?>
-                                    <option value="<?php echo $item['MaThanhVien']  ?>" <?php $item['MaThanhVien']==$id_product['NguoiBan'] ? "selected= 'selected'" : '' ?> > <?php echo $item['TenDangNhap']  ?> 
+                                    <option value="<?php echo $item['MaThanhVien']  ?>" <?php if($item['MaThanhVien']==$id_product['NguoiBan']) echo "selected= 'selected'"  ?> > <?php echo $item['TenDangNhap']  ?> 
                                     </option>    
                                 <?php endforeach  ?> 
                             </select>

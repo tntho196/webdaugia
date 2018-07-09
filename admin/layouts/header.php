@@ -108,15 +108,11 @@
                         <li class= "<?php echo isset($open) && $open == 'user' ? 'active': ''  ?>" >
                             <a href=" <?php echo modules("user") ?> "><i class="fa fa-fw fa-edit"></i> Danh sách thành viên</a>
                         </li>
+                        
                         <li>
-                            <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i>Danh sách phiên đấu giá</a>
+                            <a href="../ctdaugia/index.php"><i class="fa fa-fw fa-wrench <?php echo isset($open) && $open == 'ctdaugia' ? 'active': ''  ?>"></i> Chi tiết đấu giá </a>
                         </li>
-                        <li>
-                            <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Chi tiết đấu giá </a>
-                        </li>
-                        <li>
-                            <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Loại sản phẩm </a>
-                        </li>
+                        
 
                         
                     </ul>

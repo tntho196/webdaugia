@@ -95,7 +95,7 @@
                             
 
                                 <?php foreach( $id_user as  $item):  ?>
-                                    <option value="<?php echo $item['MaThanhVien']  ?>" <?php if($item['MaThanhVien']==$id_Ctiet['MaThanhVien']) echo "selected= 'selected'"  ?> > <?php echo $item['TenDangNhap']  ?> 
+                                    <option value="<?php echo $item['MaThanhVien']  ?>" <?php if($item['MaThanhVien']==$id_Ctiet['MaThanhVien']) echo "selected= 'selected'" 	 ?> > <?php echo $item['TenDangNhap']  ?> 
                                     </option>    
                                 <?php endforeach  ?> 
                             </select>

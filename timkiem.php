@@ -1,6 +1,17 @@
 <?php require_once __DIR__. "/layouts/header.php";  ?> 
 <?php
-        $showsproduct=$db->fetchAll('sanpham');
+        $id=$_GET['keywork'];
+        if(isset($_GET['page']))
+       {
+           $p=$_GET['page'];
+       }
+       else
+       {
+           $p=1;
+       }
+        $sql="SELECT * FROM sanpham WHERE TenSP LIKE '%$id%'";
+
+        $showsproduct=$db->fetchJone('sanpham',$sql,$p,2,false,'MaSP');
   ?>
                     <div class="col-md-9 col-xs-3 bor">
                         
@@ -40,7 +51,6 @@
                 method: 'GET',
                 url: 'updateTrangThaiBanHang.php',
             })
-        }, 300);
+        }, 3000);
     });
 </script>
-                

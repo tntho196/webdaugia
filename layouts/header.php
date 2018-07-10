@@ -78,7 +78,7 @@ $showloai=$db->fetchAll('loaisp');
                 <div class="container">
                     <div class="row" id="header-main">
                         <div class="col-md-5">
-                            <form class="form-inline">
+                            <form class="form-inline" method= "GET" action="timkiem.php" >
                                 <label>Tìm Kiếm Sản Phẩm: </label>
                                 <div class="form-group">
                                    
@@ -159,7 +159,7 @@ $showloai=$db->fetchAll('loaisp');
 
                                 <li>
 
-                                    <a href=""><?php echo $key['TenLoaiSP'] ?>  </a>
+                                    <a href="phanloai.php?id=<?php echo $key['id']  ?>"><?php echo $key['TenLoaiSP'] ?>  </a>
                                     
                                 </li>
                             <?php endforeach;  ?>

@@ -154,8 +154,16 @@
             $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
             return mysqli_fetch_assoc($result);
         }
-        // ham cho admin
-        
+        // hiện nguoi chien thnag
+         public function fetchnguoi($table , $id )
+        {
+            $sql = "SELECT ctdaugia.*, CONCAT(thanhvien.Ho,' ',thanhvien.Ten) as HoTen  FROM ctdaugia,thanhvien,
+            (SELECT  MAX(GiaMuonDau) AS Gia
+            FROM ctdaugia WHERE MaSP ='$id')AS MAxGia
+            WHERE ctdaugia.GiaMuonDau =MAXGia.Gia AND thanhvien.MaThanhVien=ctdaugia.MaThanhVien ";
+            $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
+            return mysqli_fetch_assoc($result);
+        }
     
         public function fetchOne($table , $query)
         {

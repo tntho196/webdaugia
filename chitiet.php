@@ -20,6 +20,22 @@
             $sotrang=$ctdaugia['page'];
             unset($ctdaugia['page']);
         }
+        // hien nguoi chien thang
+        if($show_one_product['Trangthai']==1)
+        {
+            $nguoithang=$db->fetchnguoi('ctdaugia',$id);
+            $max =$nguoithang['MaThanhVien'];
+            $data =['NguoichienThang'=>$max];
+
+            $id_update= $db->update('sanpham',$data, array("MaSP"=>$id));
+        }
+
+
+
+
+
+
+
         // hien thi 1 user
         $iduser=$show_one_product['NguoiBan'];
         $show_one_user=$db->fetchID('thanhvien',$iduser, 'MaThanhVien');
@@ -44,13 +60,17 @@
 
                 ];
                 $error =[];
-                if(postInput('daugia')==''|| (postInput('daugia')<=($maxgia+10000)))
+                if(postInput('daugia')==''|| (postInput('daugia')<($maxgia+10000)))
                 {
                     $error['daugia']=" Bạn phải nhập giá lớn hơn giá cao nhất 10000 vnđ ";
                 }
                 if($_SESSION['name_id']==$iduser)
                 {
                     $error['user_load']="Bạn không thể đấu giá sản phẩm này khi bạn là người bán ";
+                }
+                if($show_one_product['Trangthai']==1)
+                {
+                    $error['trangthai']= " Phiên đấu giá Đã kết thúc";
                 }
                 
 
@@ -102,7 +122,9 @@
                                     
                                     <li><p> Giá Khởi điểm: <b class="price"><?php echo number_format($show_one_product['GiaKhoiDiem'])  ?> vnđ</b></li>
                                     <li><p><h3> Giá Cao Nhất Hiện Tại:</h3> <b class="price" id="giaMaxHienTai"><?php echo number_format($maxgia)  ?> VNĐ</b></li>
-                                   
+                                    <li><p> <strong>Ngày Kết Thúc:  </strong>  <b class="date"><?php echo" " .$show_one_product['ThoiHan'] ?> </b></li>
+                                    <li> <p><strong>Trạng Thái:</strong></p> <?php  if($show_one_product['Trangthai']==0) echo "Đang Đấu Giá "; else echo "Đã Kết Thúc";  ?></li>
+                                    
                                </ul>
                             </div>
 
@@ -115,27 +137,37 @@
                                         <input  name="daugia"type="number" step="10000" class="form-control"  value="<?php echo $maxgia ?>" id="inputGiaMax">
                                         <br>
                                         <div class="">
-                                <?php if(isset($error['daugia'])): ?>
-                                
-                                
-                                    <p class="text-danger"> <?php echo  $error['daugia'] ?>  </p> 
-                            
-                              <?php endif;  ?>
-                              <?php if(isset($error['user_load'])): ?>
-                                
-                                    <br>
-                                    <p class="text-danger"> <?php echo  $error['user_load'] ?>  </p> 
-                            
-                              <?php endif;  ?>
+
+                                        <?php if(isset($error['trangthai'])): ?>
+                                            
+                                            
+                                                <p class="text-danger"> <?php echo  $error['trangthai'] ?>  </p> 
+                                        
+                                          <?php endif;  ?>
+                                        <?php if(isset($error['daugia'])): ?>
+                                            
+                                            
+                                                <p class="text-danger"> <?php echo  $error['daugia'] ?>  </p> 
+                                        
+                                          <?php endif;  ?>
+                                          <?php if(isset($error['user_load'])): ?>
+                                            
+                                                <br>
+                                                <p class="text-danger"> <?php echo  $error['user_load'] ?>  </p> 
+                                        
+                                          <?php endif;  ?>
 
                                           
                                         </div>
+                                        <br>
+                                        <ul>
+                                            <li></li>
+                                            <li><button class="btn btn-lg btn-primary " style=" margin-top: 10px;
+                                                        " type="submit"> Đấu Giá Ngay</button></li>
+                                        </ul>
                                  </div>
                                  <br>
-                                 <ul>
-                                      
-                                      <li><button class="btn btn-lg btn-primary " type="submit"> Đấu Giá Ngay</button></li>
-                                 </ul>
+                                
                             </form>
                         </div>
                         <div class="col-md-12" id="tabdetail">
@@ -185,7 +217,7 @@
 
                                                     <td><?php echo $stt ?></td>
                                                     <td><?php echo $key['hoten']  ?></td>
-                                                    <td><?php echo $key['username']  ?></td>
+                                                    <td><a href="info_user.php?id=<?php echo $key['MaThanhVien'] ?>"><?php echo $key['username']  ?></a></td>
                                                     <td><?php echo number_format($key['GiaMuonDau'])  ?> vnđ</td>
                                                     <td><?php echo $key['thoigian'] ?></td>
                                                                <?php $stt++ ;?>
@@ -200,6 +232,7 @@
                         </div>
 
                     </div>
+
                     <script>
                         (function ($) {
                               $('.spinner .btn:first-of-type').on('click', function() {

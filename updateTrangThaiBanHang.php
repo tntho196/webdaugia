@@ -19,4 +19,25 @@
 
        }
 
+        $sql2="SELECT sanpham.*   FROM sanpham  WHERE  Trangthai = 1";
+        $daban= $db->fetchJone("sanpham",$sql2,1,2,false,'MaSP');
+        
+        print_r($daban);
+              foreach ($daban as $key) {
+                     $nguoicaonhat=$db->fetchnguoi('ctdaugia',$key['MaSP']);
+                     $max= $nguoicaonhat['MaThanhVien'];
+                     if($nguoicaonhat!=NULL)
+                     {
+                            $data2=["NguoichienThang"=> $max ];
+                             echo $max;
+                             $id_update2= $db->update('sanpham',$data2, array("MaSP"=>$key['MaSP']));
+                     }
+                     else
+                      $data2=["NguoichienThang"=> 1 ];
+                     
+                    
+              }
+              
+       
+
 ?>

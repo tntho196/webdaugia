@@ -61,7 +61,7 @@ $showloai=$db->fetchAll('loaisp');
                                             
                                         <?php else:  ?>
                                             <li>
-                                                <a href="login.php"><i class="fa fa-unlock"></i> Login</a>
+                                                <a href="login.php"><i class="fa fa-unlock"></i> Đăng Nhập</a>
                                             </li>
                                              <li>
                                                 <a href="dangky.php"><i class="fa glyphicon glyphicon-plus"></i> Đăng ký</a>
@@ -119,17 +119,13 @@ $showloai=$db->fetchAll('loaisp');
                         </div>
                         <!--menu main-->
                         <ul id="menu-main">
-                            <li>
-                                <a href="">Shop</a>
-                            </li>
-                            <li>
-                                <a href="">Mobile</a>
-                            </li>
+                            
+                            
                             <li>
                                 <a href="">Liên hệ</a>
                             </li>
                             <li>
-                                <a href="">Blog</a>
+                                <a href="">Hướng Dẫn</a>
                             </li>
                             <li>
                                 <a href="addproduct.php">Đăng tải Sản Phẩm</a>

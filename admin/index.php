@@ -9,10 +9,10 @@
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="index.html">Thêm Admin</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/daugia3.0/admin/"></a>
                                 </li>
                                 <li class="active">
-                                    <i class="fa fa-file"></i> Hiển thị danh sách admin 
+                                    <i class="fa fa-file"></i><h4>chào Mừng bạn đến với trang quản trị của web đấu giá MaxSHOP </h4>
                                 </li>
                             </ol>
                         </div>

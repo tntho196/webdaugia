@@ -1,5 +1,5 @@
 <?php
-	 $open='product';
+	 $open='ctdaugia';
       require_once __DIR__. "/../../../autoload/autoload.php";
 
     $id=getInput('id');

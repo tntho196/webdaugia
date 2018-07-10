@@ -1,5 +1,5 @@
 <?php
-    $open= "user" ;
+    $open= "ctdaugia" ;
     require_once __DIR__. "/../../autoload/autoload.php";
 
     $id=intval(getInput('id'));

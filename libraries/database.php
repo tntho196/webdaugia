@@ -164,6 +164,14 @@
             $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
             return mysqli_fetch_assoc($result);
         }
+        // hiện MACT dau gia cao nhat
+         public function fetchCT($table , $Masp, $Matv )
+        {
+            $sql = "SELECT * FROM ( SELECT MAX(GiaMuonDau) as max FROM ctdaugia WHERE MaSP ='Masp') as Maxct ,ctdaugia WHERE ctdaugia.MaThanhVien='$Matv' and ctdaugia.GiaMuonDau=max ";
+            $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
+            return mysqli_fetch_assoc($result);
+        }
+
     
         public function fetchOne($table , $query)
         {

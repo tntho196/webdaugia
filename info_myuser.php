@@ -15,6 +15,8 @@
        $show_product_us= $db->fetchJone("sanpham",$sql,$p,2,false,'MaSp');
        $sql_history="SELECT ctdaugia.*,sanpham.*   FROM sanpham,ctdaugia  WHERE  MaThanhVien =$id AND ctdaugia.MaSP =sanpham.MaSP ";
        $show_history= $db->fetchJone("ctdaugia",$sql_history,$p,2,false,'MaCT');
+       $sql_win="SELECT * FROM sanpham WHERE sanpham.NguoichienThang= '$id'";
+       $show_sp_win= $db->fetchJone("sanpham",$sql_win,$p,2,false,'MaSp');
        
        
        
@@ -38,7 +40,7 @@
           <ul class="nav nav-tabs">
              <li class="active"><a data-toggle="tab" href="#home"><strong>Các sản Phẩm Của bạn </strong></a></li>
              <li><a data-toggle="tab" href="#ls"><strong>Lịch sử Đấu Giá </strong></a></li>
-             
+             <li><a data-toggle="tab" href="#spwin"> <strong> sản phẩm chiến thắng </strong></a></li>
           </ul>
           <div class="tab-content">
              <div id="home" class="tab-pane fade in active ">
@@ -94,6 +96,7 @@
                          <td>
                                                 <a class="btn btn-xs btn-info " href="editSP.php?id=<?php echo $key['MaSP']  ?>" >Sửa</a>
                                                 <a class="btn btn-xs btn-danger"  href="deleteSP.php?id=<?php echo $key['MaSP']  ?>">Xóa</a>
+                                                <a class="btn btn-xs btn-info " href="chitiet.php?id=<?php echo $key['MaSP']  ?>" >Xem Chi tiết</a>
                                             </td>
                          <?php $stt++ ;?>
                                                  
@@ -156,6 +159,90 @@
                          <td><?php echo number_format($key['GiaMuonDau'])  ?> vnđ</td>
                                                      
                          <td><?php echo $key['ThoiHan'] ?></td>
+                         <?php $stt++ ;?>
+                         <td>
+                         <a class="btn btn-xs btn-info " href="chitiet.php?id=<?php echo $key['MaSP']  ?>" >xem chi tiết</a>
+                         
+                         </td>
+                                                 
+                      </tr>
+                    <?php endforeach;  ?>
+                                          
+                   </tbody>
+                                   
+                </table>
+             </div>
+             <div id="spwin" class="tab-pane fade ">
+                <br>
+                 <table class="table">
+                                       
+                   <thead>
+                                              
+                      <tr>
+                                                     
+                         <th>
+                            <strong>
+                               <p>STT</p>
+                            </strong>
+                         </th>
+                                                     
+                         <th>
+                            <strong>
+                               <p>Tên Sản Phẩm</p>
+                            </strong>
+                         </th>
+                        =
+                                                     
+                         <th>
+                            <strong>
+                               <p>Giá Chiến Thắng </p>
+                            </strong>
+                         </th>
+                                                     
+                         <th>
+                            <strong>
+                               <p>thời gian</p>
+                            </strong>
+                         </th>
+                         <th>
+                             xem chi tiết
+                         </th>
+                                                 
+                      </tr>
+                                          
+                   </thead>
+                                       
+                   <tbody>
+                    <?php $stt=1; foreach ($show_sp_win as $key):?> 
+                                              
+                      <tr>
+                                                     
+                         <td><?php echo $stt ?></td>
+                                                     
+                         <td><?php echo $key['TenSP']  ?></td>
+
+                          
+                          <td> <?php 
+                            $masp= $key['MaSP'];
+                            
+                            $sqlct="SELECT * FROM ( SELECT MAX(GiaMuonDau) as max FROM ctdaugia WHERE MaSP ='$masp') as Maxct ,ctdaugia WHERE ctdaugia.MaThanhVien='$id' and ctdaugia.GiaMuonDau=max";
+                            $show_ct=$db->fetchJone("ctdaugia",$sqlct,$p,2,false,'MaCT');
+                                foreach ($show_ct as  $value) {
+
+                                  echo number_format($value['max']).'  vnđ';
+                                }
+                           ?></td> 
+                           <td>
+                            <?php 
+
+                                  foreach ($show_ct as  $value) {
+
+                                  echo ($value['thoigian']);
+                                }
+                              ?>
+                           </td>                          
+                                                     
+                        
                          <?php $stt++ ;?>
                          <td>
                          <a class="btn btn-xs btn-info " href="chitiet.php?id=<?php echo $key['MaSP']  ?>" >xem chi tiết</a>

@@ -44,8 +44,51 @@ $showloai=$db->fetchAll('loaisp');
                                         
                                         <?php  if(isset($_SESSION['name_user'])):  ?>
                                             <li>
+                                                <div id="noti">
+                                                    <div class="dropdown nav-item">
+                                                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+                                                            <i class="nc-icon nc-planet"></i>
+                                                            <span class="notification" id="count-noti"></span>
+                                                            <span class="d-lg-none"><span class="glyphicon glyphicon-bell" aria-hidden="true" id="noti-icon"></span></span>
+                                                        </a>
+                                                        <ul class="dropdown-menu" id="list-noti">
+                                                            <!-- <a class="dropdown-item" href="#">Notification 1</a> -->
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                
+                                                <script>
+                                                    $.ajax({
+                                                        method: 'GET',
+                                                        data: {
+                                                            id: <?php echo $_SESSION['name_id']; ?>
+                                                        },
+                                                        url: 'thongbao.php',
+                                                        dataType: 'json'
+                                                    }).
+                                                        done(function (res) {
+                                                            $('#list-noti').html('');
+                                                            $('#count-noti').html(res.length);
+                                                            res.map(function (item) {
+                                                                var html = '<a href="chitiet.php?id='+item.MaSP+'"><div class="noti-item" > Bạn đã chiến thắng sản phẩm <strong>'+item.TenSP+'<strong> - Chi tiết</div></a>';
+                                                                $('#list-noti').append(html);  
+                                                            })
+                                                        })
+                                                </script>
+                                                <style>
+                                                    #list-noti {
+                                                        padding-top: 10px;
+                                                        width: 250px
+                                                    }
+                                                    .noti-item {
+                                                        border-top: 1px solid black;
+                                                    }
+                                                </style>
+                                            </li>
+                                            <li>
                                                 Xin chào <?php echo $_SESSION['name_user']  ?>   
                                             </li>
+                                            
                                              <li>
                                                 <a href=""><i class="fa fa-user"></i> My Account <i class="fa fa-caret-down"></i></a>
                                                 <ul id="header-submenu">
@@ -55,9 +98,7 @@ $showloai=$db->fetchAll('loaisp');
                                                     <li><a href="sua_info.php">Sửa thông tin</a></li>
                                                 </ul>
                                             </li>
-                                            <li>
-                                                <div id="noti">THONG BAO</div>
-                                            </li>
+
                                             
                                         <?php else:  ?>
                                             <li>

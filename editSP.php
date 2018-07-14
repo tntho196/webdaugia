@@ -82,7 +82,7 @@
                
             <div class="row">
                 <div class="col-md-6 ">
-                    <legend><i class="glyphicon glyphicon-globe"></i></a> Đăng tải Sản Phẩm !
+                    <legend><i class="glyphicon glyphicon-globe"></i></a> Cập nhật thông tin sản phẩm !
                     </legend>
                         <?php if(isset($_SESSION['success'])) :  ?>
                                 <div class="alert alert-success">

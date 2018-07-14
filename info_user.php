@@ -37,7 +37,7 @@
        <div class="row">
           <ul class="nav nav-tabs">
              <li class="active"><a data-toggle="tab" href="#home"><strong>Các sản Phẩm Của <?php echo $show_one_user['TenDangNhap'] ?></strong></a></li>
-             <li><a data-toggle="tab" href="#ls"><strong>Lịch sử Đấu Giá </strong></a></li>
+             
              
           </ul>
           <div class="tab-content">

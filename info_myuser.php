@@ -227,18 +227,19 @@
                             
                             $sqlct="SELECT * FROM ( SELECT MAX(GiaMuonDau) as max FROM ctdaugia WHERE MaSP ='$masp') as Maxct ,ctdaugia WHERE ctdaugia.MaThanhVien='$id' and ctdaugia.GiaMuonDau=max";
                             $show_ct=$db->fetchJone("ctdaugia",$sqlct,$p,2,false,'MaCT');
-                                foreach ($show_ct as  $value) {
+                                // foreach ($show_ct as  $value) {
 
-                                  echo number_format($value['max']).'  vnđ';
-                                }
+                                //   echo number_format($value['max']).'  vnđ';
+                                // }
+                            echo number_format($show_ct[0]['max']).'  vnđ';;
                            ?></td> 
                            <td>
                             <?php 
 
-                                  foreach ($show_ct as  $value) {
+                                  // foreach ($show_ct as  $value) {
 
-                                  echo ($value['thoigian']);
-                                }
+                                  echo $show_ct[0]['thoigian'];
+                                // }
                               ?>
                            </td>                          
                                                      

@@ -2,7 +2,7 @@
    require_once __DIR__. "/autoload/autoload.php";
    if(isset($_SESSION['name_ad_id']))
     {
-         echo " <script> alert('Bạn Đã Đăng Nhập ');location.href='daugia30/admin'</script>" ;
+         echo " <script> alert('Bạn Đã Đăng Nhập ');location.href='index.php'</script>" ;
     }
    if($_SERVER["REQUEST_METHOD"]== "POST")
     {
@@ -70,7 +70,7 @@
          <div style="padding-top:30px" class="panel-body" >
             <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
             <form id="loginform" class="form-horizontal" role="form">
-              <?php require_once __DIR__. "/partials/notification.php";   ?> 
+              <?php require_once __DIR__. "../../partials/notification.php";   ?> 
                <div style="margin-bottom: 25px" class="input-group">
                 
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>

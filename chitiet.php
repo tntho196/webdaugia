@@ -242,7 +242,6 @@
                                 $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 100000);
                               });
                             })(jQuery);
-
                         $(document).ready(function () {
                             setInterval(function(){ 
                                 $.ajax({
@@ -260,7 +259,7 @@
                                         var row = '<tr>'+
                                         '<td>'+parseInt(key+1)+'</td>'+
                                         '<td>'+item.hoten+'</td>'+
-                                        '<td>'+item.username+'</td>'+
+                                        '<td><a href="info_user.php?id='+item.MaThanhVien+'">'+item.username+'</a></td>'+
                                         '<td>'+parseFloat(item.GiaMuonDau).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + ' VNĐ'+'</td>'+
                                         '<td>'+item.thoigian+'</td>'+
                                     '</tr>'

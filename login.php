@@ -54,14 +54,16 @@
      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
-<body>
+<body background="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_login_bg/images/main-background1.jpg">
    
 <!------ Include the above in your HEAD tag ---------->
 <div class="container">
     
-    
+     <div class="logo" style=" text-align:center; color: #f8e6e6; ">
+       <h1><strong> ĐẤU GIÁ MAX SHOP</strong></h1> 
+     </div>
    <form action="" method="POST" accept-charset="utf-8">
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div id="loginbox" style="margin-top:100px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
       <div class="panel panel-info" >
          <div class="panel-heading">
             <div class="panel-title">Đăng nhập</div>

@@ -82,7 +82,7 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i>  Thêm Admin
+                            <i class="fa fa-dashboard"></i>  sửa thông tin Admin
                         </li>
                     </ol>
                     <!-- thng tin lỗi -->
@@ -92,7 +92,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
-                    <legend><a href="http://hocwebgiare.com/"><i class="glyphicon glyphicon-globe"></i></a> Thêm !
+                    <legend><a href="http://hocwebgiare.com/"><i class="glyphicon glyphicon-globe"></i></a> Sửa admin
                     </legend>
                     <form action="" method="post" class="form" role="form">
                         
@@ -116,7 +116,7 @@
                                  ?>   
                             
                         
-                        <button class="btn btn-lg btn-primary btn-block" type="submit"> Thêm</button>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit"> Cập nhập</button>
 
                     </form>
                 </div>

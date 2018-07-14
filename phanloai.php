@@ -9,7 +9,7 @@
        {
            $p=1;
        }
-        $sql="SELECT * FROM sanpham WHERE MaLoai =$id";
+        $sql="SELECT * FROM sanpham WHERE MaLoai =$id AND Trangthai=0";
 
         $showsproduct=$db->fetchJone('sanpham',$sql,$p,2,false,'MaSp');
   ?>
@@ -17,7 +17,7 @@
                         
 
                         <section class="box-main1">
-                            <h3 class="title-main"><a href="">Tất Cả Sản Phẩm</a> </h3>
+                            <h3 class="title-main"><a href="">Sản Phẩm </a> </h3>
                             
                             <div class="showitem">
                                 <?php foreach ($showsproduct as $key ): ?>
@@ -29,6 +29,7 @@
                                     <div class="info-item">
                                         <a href=""><?php echo $key['TenSP']  ?></a>
                                         <p><strong class="price">Giá Khởi điểm: <?php echo number_format($key['GiaKhoiDiem'] ) ?> vnđ</strong> </p>
+                                        <p>Ngày Kết thúc: <?php  echo  date("d-m-Y", strtotime($key['ThoiHan']));  ?></p>
                                     </div>
                                     <div class="hidenitem">
                                         <p><a href=""><i class="fa fa-search"></i></a></p>

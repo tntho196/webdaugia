@@ -36,9 +36,7 @@
                         <div class="container">
                             <div class="col-md-4" id="ft-about">
                                 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco </p>
+                                <p> Đấu giá MAXShop Trang đấu giá trực tuyến hàng đầu Việt Nam </p>
                             </div>
                            
                             <div class="col-md-4 box-footer">

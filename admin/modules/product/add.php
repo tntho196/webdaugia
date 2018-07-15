@@ -85,7 +85,7 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         Trang quản trị ADmin
-                        <small>Subheading</small>
+                        
                     </h1>
                     <ol class="breadcrumb">
                         <li>
@@ -146,9 +146,12 @@
                    
                             <br>
                             <label>Thông tin sản phẩm</label>
-                            <textarea class="form-control" name="content">
-                                
-                            </textarea>
+                            <textarea id="froala-editor" class="form-control" name="content"></textarea>
+                            <script>
+                              $(function() {
+                                $('textarea#froala-editor').froalaEditor()
+                              });
+                            </script>
                             <?php
                                 if(isset($error['content'])): ?>
                                 

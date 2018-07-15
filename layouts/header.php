@@ -129,7 +129,7 @@ $showloai=$db->fetchAll('loaisp');
                             </form>
                         </div>
                         <div class="col-md-4">
-                            <a href="">
+                            <a href="/daugia3.0/index.php">
                                 <img src="/daugia3.0/public/frontend/images/logo-default.png">
                             </a>
                         </div>
@@ -156,7 +156,7 @@ $showloai=$db->fetchAll('loaisp');
                 <div class="container">
                     <nav>
                         <div class="home pull-left">
-                            <a href="index.php">Trang chủ</a>
+                            <a href="/daugia3.0/index.php">Trang chủ</a>
                         </div>
                         <!--menu main-->
                         <ul id="menu-main">
@@ -176,8 +176,9 @@ $showloai=$db->fetchAll('loaisp');
 
                         <!--Shopping-->
                         <ul class="pull-right" id="main-shopping">
+                            
                             <li>
-                                <a href=""><i class="fa fa-shopping-basket"></i> My Cart </a>
+                                <a href="/daugia3.0/info_myuser.php?id=<?php echo $_SESSION['name_id'] ?> "><i class="fa fa-shopping-basket"></i> My Cart </a>
                             </li>
                         </ul>
                         <!--end Shopping-->

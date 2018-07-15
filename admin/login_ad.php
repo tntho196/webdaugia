@@ -54,17 +54,22 @@
      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
-<body>
+<body background="https://images.unsplash.com/photo-1460602594182-8568137446ce?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c6a89cf0d31c8ed23b35aaf9a119a9f5&w=1000&q=80">
+  
+
    
 <!------ Include the above in your HEAD tag ---------->
 <div class="container">
     
-    
+    <div align="center" style=" color: #f1f1f1 ">
+            
+           <h1><strong> ĐẤU GIÁ MAXSHOP</strong> </h1></div>
    <form action="" method="POST" accept-charset="utf-8">
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
       <div class="panel panel-info" >
          <div class="panel-heading">
-            <div class="panel-title">Đăng nhập</div>
+          
+            <div class="panel-title">Đăng nhập dưới quyền quản trị</div>
             
          </div>
          <div style="padding-top:30px" class="panel-body" >

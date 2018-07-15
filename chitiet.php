@@ -118,7 +118,7 @@
                                <ul id="right">
                                     
                                     <li><h3> <?php echo $show_one_product['TenSP']  ?></h3></li>
-                                    <li><p> Người bán: <b class=""><a href=""><?php echo $show_one_user['TenDangNhap']  ?></a> 
+                                    <li><p> Người bán: <b class=""><a href="info_user.php?id=<?php echo $show_one_user['MaThanhVien'] ?>"><?php echo $show_one_user['TenDangNhap']  ?></a> 
                                     
                                     <li><p> Giá Khởi điểm: <b class="price"><?php echo number_format($show_one_product['GiaKhoiDiem'])  ?> vnđ</b></li>
                                     <li><p><h3> Giá Cao Nhất Hiện Tại:</h3> <b class="price" id="giaMaxHienTai"><?php echo number_format($maxgia)  ?> VNĐ</b></li>
@@ -182,7 +182,7 @@
                                         <h3>Nội dung</h3>
                                         <br>
                                         <p>
-                                        <?php echo $show_one_product['ThongTinSP']  ?>
+                                        <?php echo nl2br( $show_one_product['ThongTinSP']);  ?>
                                         </p>
                                     </div>
                                     

@@ -9,7 +9,13 @@
        {
            $p=1;
        }
-        $showsproduct=$db->fetchJone('sanpham',$sql,$p,2,false,'MaSp');
+
+        $showsproduct=$db->fetchJone('sanpham',$sql,$p,10,true,'MaSp');
+         if(isset($showsproduct['page']))
+        {
+        $sotrang=$showsproduct['page'];
+        unset($showsproduct['page']);
+       }
   ?>
                     <div class="col-md-9 col-xs-6 bor">
                         
@@ -40,6 +46,30 @@
                             </div>
                         </section>
 
+                    </div>
+                     <div class="container" align="center">
+                        <div class="row">
+                        <h2></h2>
+                            <ul class="pagination "  >
+                                <li><a href="<?php if($sotrang>1&&$p>1) echo '?page='.($p-1) ?>">&laquo;</a></li>
+                                <?php for($i=1;$i<=$sotrang;$i++) :  ?>
+                                    <?php
+                                        if(isset($_GET['page']))
+                                        {
+                                            $p=$_GET['page'];
+                                        } 
+                                        else
+                                        {
+                                            $p=1;
+                                        }
+                                     ?>
+                                     <li class="<?php echo ($i==$p) ? 'active' : ''  ?>">
+                                         <a href="?page=<?php echo $i;  ?>"> <?php echo $i;  ?> </a>
+                                     </li>
+                                 <?php endfor;  ?>
+                                <li><a href="<?php if($sotrang>$p && $sotrang>1) echo '?page='.($p+1) ?>">&raquo;</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 <?php require_once __DIR__. "/layouts/footer.php";  ?>

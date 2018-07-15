@@ -148,7 +148,7 @@
 
                             <br>
                             <label class="radio-inline">          <input name="trangthai" id="inlineCheckbox1" value="1" type="radio" <?php  if($id_product['Trangthai']==1) echo 'checked'  ?> >          Đã Bán </label>
-                            <label class="radio-inline">          <input name="trangthai" id="inlineCheckbox2" value="0" <?php if($id_product['Trangthai']==0) echo 'checked'; ?> type="radio">          Chưa </label>
+                            <label class="radio-inline">          <input name="trangthai" id="inlineCheckbox2" value="0" <?php if($id_product['Trangthai']==0) echo 'checked'; ?> type="radio">  Chưa (công bố trên trang chủ) </label>
                             <br>
                             <br>
                             <label class="control-lable">Thời hạn </label>

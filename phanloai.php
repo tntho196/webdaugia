@@ -32,9 +32,7 @@
                                         <p>Ngày Kết thúc: <?php  echo  date("d-m-Y", strtotime($key['ThoiHan']));  ?></p>
                                     </div>
                                     <div class="hidenitem">
-                                        <p><a href=""><i class="fa fa-search"></i></a></p>
-                                        <p><a href=""><i class="fa fa-heart"></i></a></p>
-                                        <p><a href=""><i class="fa fa-shopping-basket"></i></a></p>
+                                        
                                     </div>
                                 </div>
                                 <?php endforeach;   ?>

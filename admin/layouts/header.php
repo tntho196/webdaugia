@@ -25,6 +25,13 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!-- Include Editor style. -->
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_style.min.css' rel='stylesheet' type='text/css' />
+         
+        <!-- Include JS file. -->
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/js/froala_editor.min.js'></script>
     </head>
     <body>
         <div id="wrapper">
@@ -45,7 +52,7 @@
                     <li style="color:white;" >
                         
                     Xin Chào <?php echo $_SESSION['name_ad_id'] ?></li>
-                    <a class="btn" href="logout_ad.php">Thoát</a>
+                    <a class="btn" href="/daugia3.0/admin/logout_ad.php">Thoát</a>
                 </ul>
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -54,14 +61,14 @@
                             <a href="<?php echo modules("quanly ") ?>"><i class="fa fa-fw fa-dashboard"></i>Danh Sách Admin</a>
                         </li>
                         
-                        <li>
+                        <li class= "<?php echo isset($open) && $open == 'product' ? 'active': ''  ?>">
                             <a href="<?php echo modules("product") ?>"><i class="fa fa-fw fa-table"></i> Danh sách sản phẩm </a>
                         </li>
                         <li class= "<?php echo isset($open) && $open == 'user' ? 'active': ''  ?>" >
                             <a href=" <?php echo modules("user") ?> "><i class="fa fa-fw fa-edit"></i> Danh sách thành viên</a>
                         </li>
                         
-                        <li>
+                        <li class= "<?php echo isset($open) && $open == 'ctdaugia' ? 'active': ''  ?>">
                             <a href="../ctdaugia/index.php"><i class="fa fa-fw fa-wrench <?php echo isset($open) && $open == 'ctdaugia' ? 'active': ''  ?>"></i> Chi tiết đấu giá </a>
                         </li>
                         

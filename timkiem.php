@@ -29,11 +29,10 @@
                                     <div class="info-item">
                                         <a href=""><?php echo $key['TenSP']  ?></a>
                                         <p><strong class="price">Giá Khởi điểm: <?php echo number_format($key['GiaKhoiDiem'] ) ?> vnđ</strong> </p>
+                                        <p>Ngày Kết thúc: <?php  echo  date("d-m-Y", strtotime($key['ThoiHan']));  ?></p>
                                     </div>
                                     <div class="hidenitem">
-                                        <p><a href=""><i class="fa fa-search"></i></a></p>
-                                        <p><a href=""><i class="fa fa-heart"></i></a></p>
-                                        <p><a href=""><i class="fa fa-shopping-basket"></i></a></p>
+                                        
                                     </div>
                                 </div>
                                 <?php endforeach;   ?>

@@ -112,7 +112,7 @@
                   <div class="col-md-12 control">
                      <div style=" padding-top:15px; font-size:85%" >
                         Không có tài khoản?
-                        <a href="/daugia3.0/dangky.php">
+                        <a href="dangky.php">
                         Đăng ký ở đây
                         </a>
                        

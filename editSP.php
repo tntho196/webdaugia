@@ -165,7 +165,7 @@
                               <?php endif  ?>
                               <br>
                               <?php $anh=$id_product['Anh']; ?>
-                              <img src="<?php echo '/daugia3.0/public/upload/product/'.$anh ?>" width="80px" height="80px" >
+                              <img src="<?php echo 'public/upload/product/'.$anh ?>" width="80px" height="80px" >
                             
                       <br> 
                        

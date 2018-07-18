@@ -7,7 +7,7 @@
 
     if(empty($delete))
     {
-        $_SESSION['error']= "Dứ liệu không tồn tại";
+        $_SESSION['error']= "Dữ liệu không tồn tại";
         redirectAdmin('quanly');
     }
     $id_delete= $db->delete('admin', $id, 'username');

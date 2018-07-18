@@ -13,7 +13,7 @@
 
         $showsproduct=$db->fetchJone('sanpham',$sql,$p,2,false,'MaSP');
   ?>
-                    <div class="col-md-9 col-xs-3 bor">
+                    <div class="col-md-12 bor">
                         
 
                         <section class="box-main1">
@@ -22,9 +22,9 @@
                             <div class="showitem">
                                 <?php foreach ($showsproduct as $key ): ?>
                                     
-                                    <div class="col-md-4 item-product bor " >
+                                    <div class="col-md-4 col-xs-6 item-product bor " >
                                     <a  href="chitiet.php?id=<?php echo $key['MaSP']  ?>">
-                                        <img src="/daugia3.0/public/upload/product/<?php echo $key['Anh'] ?>" class="" width="100%" height="180px">
+                                        <img src="public/upload/product/<?php echo $key['Anh'] ?>" class="" width="100%" height="180px">
                                     </a>
                                     <div class="info-item">
                                         <a href=""><?php echo $key['TenSP']  ?></a>

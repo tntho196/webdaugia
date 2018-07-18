@@ -105,12 +105,12 @@
             
 
   ?>
-<div class="col-md-9 bor">
+<div class="col-md-8 col-md-offset-2 bor">
                         
 
                         <section class="box-main1" >
                             <div class="col-md-6 text-center">
-                                <img src="/daugia3.0/public/upload/product/<?php echo $show_one_product['Anh'] ?>" class="img-responsive bor" id="imgmain" width="100%" height="370" data-zoom-image="images/16-270x270.png">
+                                <img src="public/upload/product/<?php echo $show_one_product['Anh'] ?>" class="img-responsive bor" id="imgmain" width="100%" height="370" data-zoom-image="images/16-270x270.png">
                                 
                                 
                             </div>

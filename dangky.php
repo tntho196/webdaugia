@@ -67,7 +67,7 @@
      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
-<body>
+<body background="https://www.planwallpaper.com/static/images/Alien_Ink_2560X1600_Abstract_Background_1.jpg">
            
             <div class="row " style="margin: 100px;">
                  <div class="clearfix"></div>

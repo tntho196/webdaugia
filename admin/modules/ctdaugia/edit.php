@@ -9,7 +9,7 @@
 
     if(empty($id_Ctiet))
     {
-        $_SESSION['error']= "Dứ liệu không tồn tại";
+        $_SESSION['error']= "Dữ liệu không tồn tại";
         redirectAdmin('ctdaugia');
     }
     if($_SERVER["REQUEST_METHOD"]== "POST")

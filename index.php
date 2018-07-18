@@ -10,14 +10,14 @@
            $p=1;
        }
 
-        $showsproduct=$db->fetchJone('sanpham',$sql,$p,10,true,'MaSp');
+        $showsproduct=$db->fetchJone('sanpham',$sql,$p,12,true,'MaSp');
          if(isset($showsproduct['page']))
         {
         $sotrang=$showsproduct['page'];
         unset($showsproduct['page']);
        }
   ?>
-                    <div class="col-md-9 col-xs-6 bor">
+                    <div class="col-md-12 bor">
                         
 
                         <section class="box-main1">
@@ -26,9 +26,9 @@
                             <div class="showitem">
                                 <?php foreach ($showsproduct as $key ): ?>
                                     
-                                    <div class="col-md-4  item-product bor " >
+                                    <div class="col-md-4 col-xs-6  item-product bor " >
                                     <a  href="chitiet.php?id=<?php echo $key['MaSP']  ?>">
-                                        <img src="/daugia3.0/public/upload/product/<?php echo $key['Anh'] ?>" class="" width="100%" height="180px">
+                                        <img src="public/upload/product/<?php echo $key['Anh'] ?>" class="" width="100%" height="250px">
                                     </a>
                                     <div class="info-item">
                                         <a href=""><strong><?php echo $key['TenSP']  ?></strong></a>
@@ -47,7 +47,9 @@
                         </section>
 
                     </div>
-                     <div class="container" align="center">
+                     
+                </div>
+                <div class="phantrang" align="center">
                         <div class="row">
                         <h2></h2>
                             <ul class="pagination "  >
@@ -71,7 +73,6 @@
                             </ul>
                         </div>
                     </div>
-                </div>
 <?php require_once __DIR__. "/layouts/footer.php";  ?>
 <script type="text/javascript">
     $(document).ready(function () {

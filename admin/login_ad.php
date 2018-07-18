@@ -30,7 +30,7 @@
             // đăng nhặp thành công
               $_SESSION['name_ad_id']=$is_checked['username'];
               
-              echo " <script> alert('Đăng nhập thành công ');location.href='/daugia3.0/admin'</script>" ;
+              echo " <script> alert('Đăng nhập thành công ');location.href='index.php'</script>" ;
               
            }
            else

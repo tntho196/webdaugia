@@ -1,7 +1,7 @@
 <?php  require_once __DIR__. "/../../autoload/autoload.php";  
     if(!isset($_SESSION['name_ad_id']))
     {
-         echo " <script> alert('Bạn chưa Đăng Nhập ');location.href='/daugia3.0/admin/login_ad.php'</script>" ;
+         echo " <script> alert('Bạn chưa Đăng Nhập ');location.href='../../login_ad.php'</script>" ;
     }
 ?>
 <!DOCTYPE html>
@@ -52,7 +52,7 @@
                     <li style="color:white;" >
                         
                     Xin Chào <?php echo $_SESSION['name_ad_id'] ?></li>
-                    <a class="btn" href="/daugia3.0/admin/logout_ad.php">Thoát</a>
+                    <a class="btn" href="../../logout_ad.php">Thoát</a>
                 </ul>
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">

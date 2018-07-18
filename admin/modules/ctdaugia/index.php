@@ -28,11 +28,9 @@ $open= "ctdaugia" ;
                                 <small>Subheading</small>
                             </h1>
                             <ol class="breadcrumb">
-                                <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="add.php">Thêm Sản phẩm</a>
-                                </li>
+                               
                                 <li class="active">
-                                    <i class="fa fa-file"></i> Danh sách Admin
+                                    <i class="fa fa-file"></i> Danh sách chi tiết đấu giá
                                 </li>
                             </ol>
                             <div class="clearfix"></div>

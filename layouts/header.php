@@ -129,8 +129,8 @@ $showloai=$db->fetchAll('loaisp');
                             </form>
                         </div>
                         <div class="col-md-4">
-                            <a href="/daugia3.0/index.php">
-                                <img src="/daugia3.0/public/frontend/images/logo-default.png">
+                            <a href="index.php">
+                                <img src="public/frontend/images/logo-default.png">
                             </a>
                         </div>
                         <div class="col-md-3 " id="header-right">
@@ -156,11 +156,24 @@ $showloai=$db->fetchAll('loaisp');
                 <div class="container">
                     <nav>
                         <div class="home pull-left">
-                            <a href="/daugia3.0/index.php">Trang chủ</a>
+                            <a href="index.php">Trang chủ</a>
                         </div>
                         <!--menu main-->
                         <ul id="menu-main">
-                            
+                              <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Danh mục
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                   <?php foreach ($showloai as $key ) : ?>
+
+                                <li>
+
+                                    <a href="phanloai.php?id=<?php echo $key['id']  ?>"><?php echo $key['TenLoaiSP'] ?>  </a>
+                                    
+                                </li>
+                            <?php endforeach;  ?>
+                                </ul>
+                            </li>
                             
                             <li>
                                 <a href="">Liên hệ</a>
@@ -171,6 +184,7 @@ $showloai=$db->fetchAll('loaisp');
                             <li>
                                 <a href="addproduct.php">Đăng tải Sản Phẩm</a>
                             </li>
+                          
                         </ul>
                         <!-- end menu main-->
 
@@ -178,7 +192,7 @@ $showloai=$db->fetchAll('loaisp');
                         <ul class="pull-right" id="main-shopping">
                             
                             <li>
-                                <a href="/daugia3.0/info_myuser.php?id=<?php echo $_SESSION['name_id'] ?> "><i class="fa fa-shopping-basket"></i> My Cart </a>
+                                <a href="info_myuser.php?id=<?php echo $_SESSION['name_id'] ?> "><i class="fa fa-shopping-basket"></i> My Cart </a>
                             </li>
                         </ul>
                         <!--end Shopping-->
@@ -189,22 +203,5 @@ $showloai=$db->fetchAll('loaisp');
             
             <div id="maincontent">
                 <div class="container">
-                    <div class="col-md-3 col-xs-3  fixside" >
-                        <div class="box-left box-menu" >
-                            <h3 class="box-title"><i class="fa fa-list"></i>  Danh mục</h3>
-                            <ul>
-                                <?php foreach ($showloai as $key ) : ?>
-
-                                <li>
-
-                                    <a href="phanloai.php?id=<?php echo $key['id']  ?>"><?php echo $key['TenLoaiSP'] ?>  </a>
-                                    
-                                </li>
-                            <?php endforeach;  ?>
-                               
-                            </ul>
-                        </div>
-
-                        
-                    </div>
+                
 

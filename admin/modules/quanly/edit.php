@@ -7,7 +7,7 @@
 
     if(empty($EditUser))
     {
-        $_SESSION['error']= "Dứ liệu không tồn tại";
+        $_SESSION['error']= "Dữ liệu không tồn tại";
         redirectAdmin('quanly');
     }
     if($_SERVER["REQUEST_METHOD"]== "POST")
